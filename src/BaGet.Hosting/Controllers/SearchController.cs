@@ -16,30 +16,30 @@ namespace BaGet.Hosting
             _searchService = searchService ?? throw new ArgumentNullException(nameof(searchService));
         }
 
-        public async Task<ActionResult<SearchResponse>> SearchAsync(
-            [FromQuery(Name = "q")] string query = null,
-            [FromQuery]int skip = 0,
-            [FromQuery]int take = 20,
-            [FromQuery]bool prerelease = false,
-            [FromQuery]string semVerLevel = null,
+        //public async Task<ActionResult<SearchResponse>> SearchAsync(
+        //    [FromQuery(Name = "q")] string query = null,
+        //    [FromQuery]int skip = 0,
+        //    [FromQuery]int take = 20,
+        //    [FromQuery]bool prerelease = false,
+        //    [FromQuery]string semVerLevel = null,
 
-            // These are unofficial parameters
-            [FromQuery]string packageType = null,
-            [FromQuery]string framework = null,
-            CancellationToken cancellationToken = default)
-        {
-            var includeSemVer2 = semVerLevel == "2.0.0";
+        //    // These are unofficial parameters
+        //    [FromQuery]string packageType = null,
+        //    [FromQuery]string framework = null,
+        //    CancellationToken cancellationToken = default)
+        //{
+        //    var includeSemVer2 = semVerLevel == "2.0.0";
 
-            return await _searchService.SearchAsync(
-                query ?? string.Empty,
-                skip,
-                take,
-                prerelease,
-                includeSemVer2,
-                packageType,
-                framework,
-                cancellationToken);
-        }
+        //    return await _searchService.SearchAsync(
+        //        query ?? string.Empty,
+        //        skip,
+        //        take,
+        //        prerelease,
+        //        includeSemVer2,
+        //        packageType,
+        //        framework,
+        //        cancellationToken);
+        //}
 
         public async Task<ActionResult<AutocompleteResponse>> AutocompleteAsync(
             [FromQuery(Name = "q")] string query = null,

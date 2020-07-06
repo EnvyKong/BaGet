@@ -1,5 +1,5 @@
+using System.Text.Json.Serialization;
 using BaGet.Protocol.Models;
-using Newtonsoft.Json;
 
 namespace BaGet.Core
 {
@@ -12,7 +12,7 @@ namespace BaGet.Core
         /// <summary>
         /// How many times all versions of this package have been downloaded.
         /// </summary>
-        [JsonProperty("totalDownloads")]
+        [JsonPropertyName("totalDownloads")]
         public long TotalDownloads { get; set; }
     }
 }

@@ -22,34 +22,34 @@ namespace BaGet.Hosting
         }
 
         // GET v3/registration/{id}.json
-        [HttpGet]
-        public async Task<ActionResult<RegistrationIndexResponse>> RegistrationIndexAsync(string id, CancellationToken cancellationToken)
-        {
-            var index = await _metadata.GetRegistrationIndexOrNullAsync(id, cancellationToken);
-            if (index == null)
-            {
-                return NotFound();
-            }
+        //[HttpGet]
+        //public async Task<ActionResult<RegistrationIndexResponse>> RegistrationIndexAsync(string id, CancellationToken cancellationToken)
+        //{
+        //    var index = await _metadata.GetRegistrationIndexOrNullAsync(id, cancellationToken);
+        //    if (index == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return index;
-        }
+        //    return index;
+        //}
 
         // GET v3/registration/{id}/{version}.json
-        [HttpGet]
-        public async Task<ActionResult<RegistrationLeafResponse>> RegistrationLeafAsync(string id, string version, CancellationToken cancellationToken)
-        {
-            if (!NuGetVersion.TryParse(version, out var nugetVersion))
-            {
-                return NotFound();
-            }
+        //[HttpGet]
+        //public async Task<ActionResult<RegistrationLeafResponse>> RegistrationLeafAsync(string id, string version, CancellationToken cancellationToken)
+        //{
+        //    if (!NuGetVersion.TryParse(version, out var nugetVersion))
+        //    {
+        //        return NotFound();
+        //    }
 
-            var leaf = await _metadata.GetRegistrationLeafOrNullAsync(id, nugetVersion, cancellationToken);
-            if (leaf == null)
-            {
-                return NotFound();
-            }
+        //    var leaf = await _metadata.GetRegistrationLeafOrNullAsync(id, nugetVersion, cancellationToken);
+        //    if (leaf == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return leaf;
-        }
+        //    return leaf;
+        //}
     }
 }

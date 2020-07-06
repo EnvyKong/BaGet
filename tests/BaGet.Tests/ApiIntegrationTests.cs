@@ -35,5 +35,12 @@ namespace BaGet.Tests
 
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
+
+        [Fact]
+        public async Task PackageMetadataReturnsOk()
+        {
+            // Check nested polymorphic stuff...
+            // Downloads is failing right now.
+        }
     }
 }
