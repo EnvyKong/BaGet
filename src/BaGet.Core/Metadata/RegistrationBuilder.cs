@@ -41,16 +41,15 @@ namespace BaGet.Core
             };
         }
 
-        public virtual BaGetRegistrationLeafResponse BuildLeaf(Package package)
+        public virtual RegistrationLeafResponse BuildLeaf(Package package)
         {
             var id = package.Id;
             var version = package.Version;
 
-            return new BaGetRegistrationLeafResponse
+            return new RegistrationLeafResponse
             {
                 Type = RegistrationLeafResponse.DefaultType,
                 Listed = package.Listed,
-                Downloads = package.Downloads,
                 Published = package.Published,
                 RegistrationLeafUrl = _url.GetRegistrationLeafUrl(id, version),
                 PackageContentUrl = _url.GetPackageDownloadUrl(id, version),

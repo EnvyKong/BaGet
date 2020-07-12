@@ -30,7 +30,7 @@ namespace BaGet.Protocol.Models
         public IReadOnlyList<string> Type { get; set; }
 
         /// <summary>
-        /// The number of registration pages. See <see cref="Pages"/>. 
+        /// The number of registration pages. See <see cref="Pages"/>.
         /// </summary>
         [JsonPropertyName("count")]
         public int Count { get; set; }
