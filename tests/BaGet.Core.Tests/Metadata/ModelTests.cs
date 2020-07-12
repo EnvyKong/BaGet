@@ -28,7 +28,73 @@ namespace BaGet.Core.Tests.Metadata
 
                     AddedProperties = new Dictionary<string, Type>
                     {
-                        { nameof(BaGetRegistrationIndexResponse.TotalDownloads), typeof(long) }
+                        { "TotalDownloads", typeof(long) },
+                    },
+
+                    ModifiedProperties = new Dictionary<string, (Type From, Type To)>
+                    {
+                        {
+                            "Pages",
+                            (
+                                From: typeof(IReadOnlyList<RegistrationIndexPage>),
+                                To: typeof(IReadOnlyList<BaGetRegistrationIndexPage>)
+                            )
+                        },
+                    }
+                }
+            };
+
+            yield return new object[]
+            {
+                new ExtendedModelData
+                {
+                    OriginalType = typeof(RegistrationIndexPage),
+                    DerivedType = typeof(BaGetRegistrationIndexPage),
+
+                    ModifiedProperties = new Dictionary<string, (Type From, Type To)>
+                    {
+                        {
+                            "ItemsOrNull",
+                            (
+                                From: typeof(IReadOnlyList<RegistrationIndexPageItem>),
+                                To: typeof(IReadOnlyList<BaGetRegistrationIndexPageItem>)
+                            )
+                        },
+                    }
+                }
+            };
+
+            yield return new object[]
+            {
+                new ExtendedModelData
+                {
+                    OriginalType = typeof(RegistrationIndexPageItem),
+                    DerivedType = typeof(BaGetRegistrationIndexPageItem),
+
+                    ModifiedProperties = new Dictionary<string, (Type From, Type To)>
+                    {
+                        {
+                            "PackageMetadata", ( From: typeof(PackageMetadata), To: typeof(BaGetPackageMetadata) )
+                        },
+                    }
+                }
+            };
+
+            yield return new object[]
+            {
+                new ExtendedModelData
+                {
+                    OriginalType = typeof(PackageMetadata),
+                    DerivedType = typeof(BaGetPackageMetadata),
+
+                    AddedProperties = new Dictionary<string, Type>
+                    {
+                        { "Downloads", typeof(long) },
+                        { "HasReadme", typeof(bool) },
+                        { "PackageTypes", typeof(IReadOnlyList<string>) },
+                        { "ReleaseNotes", typeof(string) },
+                        { "RepositoryUrl", typeof(string) },
+                        { "RepositoryType", typeof(string) },
                     }
                 }
             };

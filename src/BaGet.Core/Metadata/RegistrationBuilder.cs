@@ -29,7 +29,7 @@ namespace BaGet.Core
                 TotalDownloads = registration.Packages.Sum(p => p.Downloads),
                 Pages = new[]
                 {
-                    new RegistrationIndexPage
+                    new BaGetRegistrationIndexPage
                     {
                         RegistrationPageUrl = _url.GetRegistrationIndexUrl(registration.PackageId),
                         Count = registration.Packages.Count(),
@@ -57,8 +57,8 @@ namespace BaGet.Core
             };
         }
 
-        private RegistrationIndexPageItem ToRegistrationIndexPageItem(Package package) =>
-            new RegistrationIndexPageItem
+        private BaGetRegistrationIndexPageItem ToRegistrationIndexPageItem(Package package) =>
+            new BaGetRegistrationIndexPageItem
             {
                 RegistrationLeafUrl = _url.GetRegistrationLeafUrl(package.Id, package.Version),
                 PackageContentUrl = _url.GetPackageDownloadUrl(package.Id, package.Version),
