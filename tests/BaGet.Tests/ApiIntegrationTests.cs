@@ -41,6 +41,7 @@ namespace BaGet.Tests
         {
             // Check nested polymorphic stuff...
             // Downloads is failing right now.
+            await Task.Yield();
         }
     }
 }
