@@ -8,8 +8,15 @@ namespace BaGet.Core
     /// BaGet's extensions to a registration index response.
     /// Extends <see cref="RegistrationIndexResponse"/>.
     /// </summary>
+    /// <remarks>
+    /// TODO: After this project is updated to .NET 5, make <see cref="BaGetRegistrationIndexResponse"/>
+    /// extend <see cref="RegistrationIndexResponse"/> and remove identical properties.
+    /// Properties that are modified should be marked with the "new" modified.
+    /// See: https://github.com/dotnet/runtime/pull/32107
+    /// </remarks>
     public class BaGetRegistrationIndexResponse
     {
+#region Original properties from RegistrationIndexResponse.
         [JsonPropertyName("@id")]
         public string RegistrationIndexUrl { get; set; }
 
@@ -18,6 +25,7 @@ namespace BaGet.Core
 
         [JsonPropertyName("count")]
         public int Count { get; set; }
+#endregion
 
         /// <summary>
         /// The pages that contain all of the versions of the package, ordered
